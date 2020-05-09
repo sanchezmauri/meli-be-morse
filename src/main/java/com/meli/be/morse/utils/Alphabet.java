@@ -60,11 +60,11 @@ public enum Alphabet {
         return morseValue;
     }
 
-    public static Alphabet getLetterByMorsecode(String morseCode){
+    public static String getLetterByMorsecode(String morseCode){
         if(letterMapByMorseCode == null){
             initMapping();
         }
-        return letterMapByMorseCode.get(morseCode);
+        return letterMapByMorseCode.get(morseCode).getLetter();
     }
 
     private static void initMapping(){

@@ -11,15 +11,39 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class TraslateTests {
 
-    private static final String MORSE_MESSAGE = ".... --- .-.. .-     -- . .-.. ..";
-    private static final String HELLO_MELI_MESSAGE = "HOLA MELI";
+    private static final String MORSE_HOLA_MELI = ".... --- .-.. .-      -- . .-.. ..";
+    private static final String HOLA_MELI_MESSAGE = "HOLA MELI";
+
+    private static final String MORSE_SENTENCE_1 = "..-. .-. .- ... .      .--. .- .-. .-      - . ... -";
+    private static final String SENTENCE_1_MESSAGE = "FRASE PARA TEST";
+
+    private static final String MORSE_SENTENCE_2 = ". ... -.-. .-. .. -... .. .-.     .     .. -- .--. .-.. . -- -. - .- .-.      .-.. --- ...      - . ... -";
+    private static final String SENTENCE_2_MESSAGE = "ESCRIBIR E IMPLEMNTAR LOS TEST";
+
+    private static final String MORSE_SENTENCE_3 = "-.-. --- -- .--. .-. .         ..- -. .-     .--. .-.. .- -.--      ....-      . -.      -- . .-.. ..       .--. --- .-.    .---- ..... ..... ..---";
+    private static final String SENTENCE_3_MESSAGE = "COMPRE UNA PLAY 4 EN MELI POR 1552";
 
     @Autowired
     private Traslate traslate;
 
     @Test
-    public void traslate2humanText() throws Exception {
-        assertEquals(traslate.traslate2Human(MORSE_MESSAGE), HELLO_MELI_MESSAGE, "Los mensajes del decoder deberian ser iguales y no lo son");
+    public void traslate2humanHolaMeli() throws Exception {
+        assertEquals(HOLA_MELI_MESSAGE, traslate.traslate2Human(MORSE_HOLA_MELI),"Los mensajes del decoder deberian ser iguales y no lo son");
+    }
+
+    @Test
+    public void traslate2humanSentence1() throws Exception {
+        assertEquals(SENTENCE_1_MESSAGE, traslate.traslate2Human(MORSE_SENTENCE_1), "Los mensajes del decoder deberian ser iguales y no lo son");
+    }
+
+    @Test
+    public void traslate2humanSentence2() throws Exception {
+        assertEquals(SENTENCE_2_MESSAGE, traslate.traslate2Human(MORSE_SENTENCE_2),"Los mensajes del decoder deberian ser iguales y no lo son");
+    }
+
+    @Test
+    public void traslate2humanSentence3() throws Exception {
+        assertEquals(SENTENCE_3_MESSAGE, traslate.traslate2Human(MORSE_SENTENCE_3),"Los mensajes del decoder deberian ser iguales y no lo son");
     }
 
     @Test
