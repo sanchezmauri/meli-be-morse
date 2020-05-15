@@ -13,10 +13,16 @@ import java.io.IOException;
 @SpringBootApplication
 public class BeMorseApplication {
 
-	private static final long thresholdShortPause = 1000;
+	private static long thresholdShortPause;
+	private static int pauseThreshold;
+	private static int pulseThreshold;
 
 	public static void main(String[] args) {
-		SpringApplication.run(BeMorseApplication.class, args);
+		ApplicationContext appContext = SpringApplication.run(BeMorseApplication.class, args);
+
+		thresholdShortPause = new Long(appContext.getEnvironment().getProperty("threshold.short.pause.miliseconds"));
+		pauseThreshold = Integer.parseInt(appContext.getEnvironment().getProperty("pause.threshold.default"));
+		pulseThreshold = Integer.parseInt(appContext.getEnvironment().getProperty("pulse.threshold.default"));
 
 		doRunApplication();
 	}
@@ -24,8 +30,8 @@ public class BeMorseApplication {
 	public static void doRunApplication() {
 		while(true) {
 			Decoder decoder = new Decoder();
-			decoder.setPauseThreshold(3);
-			decoder.setPulseThreshold(3);
+			decoder.setPauseThreshold(pauseThreshold);
+			decoder.setPulseThreshold(pulseThreshold);
 
 			int streamCounter = 0;
 			long startPauseTime = System.currentTimeMillis();
