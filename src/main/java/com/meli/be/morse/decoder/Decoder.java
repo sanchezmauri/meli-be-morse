@@ -1,20 +1,16 @@
 package com.meli.be.morse.decoder;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 
 @Service
 public class Decoder {
 
+    @Value("${pulse.threshold.default}")
     private int pulseThreshold;
-    private int pauseThreshold;
 
-    @PostConstruct
-    public void setDefaultThresholds() {
-        this.pulseThreshold = 2;
-        this.pauseThreshold = 2;
-    }
+    @Value("${pause.threshold.default}")
+    private int pauseThreshold;
 
     public String decodeBit2Morse(Integer[] bits) {
         int pulseStreamCounter = 0;

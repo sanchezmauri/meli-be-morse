@@ -359,7 +359,8 @@ public class DecoderTests {
         MORSE_PULSE_UNITY = completeWithPulseByPositions(1, 2,false, null);
         MORSE_PULSE_UNITY = completeWithPulseByPositions(0, 2, true, MORSE_PULSE_UNITY);
         MORSE_PULSE_UNITY = completeWithPulseByPositions(1, 3, true, MORSE_PULSE_UNITY);
-        decoder.setDefaultThresholds();
+        decoder.setPauseThreshold(2);
+        decoder.setPulseThreshold(2);
 
         assertEquals(MORSE_MESSAGE_POINT_SHORT_SPACE_LINE, decoder.decodeBit2Morse(MORSE_PULSE_UNITY));
     }
@@ -371,7 +372,8 @@ public class DecoderTests {
         MORSE_PULSE_UNITY = completeWithPulseByPositions(1, 3, true, MORSE_PULSE_UNITY);
         MORSE_PULSE_UNITY = completeWithPulseByPositions(0, 4, true, MORSE_PULSE_UNITY);
         MORSE_PULSE_UNITY = completeWithPulseByPositions(1, 4, true, MORSE_PULSE_UNITY);
-        decoder.setDefaultThresholds();
+        decoder.setPauseThreshold(2);
+        decoder.setPulseThreshold(2);
 
         assertEquals(MORSE_MESSAGE_POINT_SHORT_SPACE_LINE_LARGE_SPACE_LINE, decoder.decodeBit2Morse(MORSE_PULSE_UNITY));
     }

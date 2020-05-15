@@ -2,7 +2,6 @@ package com.meli.be.morse;
 
 import com.meli.be.morse.decoder.Decoder;
 import com.meli.be.morse.traslate.Traslate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -18,7 +17,9 @@ public class BeMorseApplication {
 
 		while(true) {
 			Decoder decoder = new Decoder();
-			decoder.setDefaultThresholds();
+			decoder.setPauseThreshold(3);
+			decoder.setPulseThreshold(3);
+
 			int streamCounter = 0;
 			long startPauseTime = System.currentTimeMillis();
 			long finishPauseTime = 0l;
