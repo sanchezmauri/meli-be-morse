@@ -40,7 +40,7 @@ public class Decoder {
                     if(pauseStreamCounter <= this.pauseThreshold)
                         stBuilder.append(" ");
                     else
-                        stBuilder.append("  ");
+                        stBuilder.append("      ");
                     pauseStreamCounter = 0;
                 }
                 if(bit == null) {

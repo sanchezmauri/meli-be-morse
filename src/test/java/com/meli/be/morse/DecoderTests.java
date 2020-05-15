@@ -16,11 +16,11 @@ public class DecoderTests {
     private static final String MORSE_MESSAGE_LINE = "-";
 
     private static final String MORSE_MESSAGE_SHORT_SPACE = " ";
-    private static final String MORSE_MESSAGE_LARGE_SPACE = "  ";
+    private static final String MORSE_MESSAGE_LARGE_SPACE = "      ";
 
     private static final String MORSE_MESSAGE_POINT_SHORT_SPACE_POINT = ". .";
     private static final String MORSE_MESSAGE_POINT_SHORT_SPACE_LINE = ". -";
-    private static final String MORSE_MESSAGE_POINT_SHORT_SPACE_LINE_LARGE_SPACE_LINE = ". -  -";
+    private static final String MORSE_MESSAGE_POINT_SHORT_SPACE_LINE_LARGE_SPACE_LINE = ". -      -";
 
     @Autowired
     private Decoder decoder;
